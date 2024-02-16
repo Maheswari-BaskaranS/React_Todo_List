@@ -27,7 +27,7 @@ function App() {
     const addNewItem = {id, checked:false, item}
     const listItems = [...items, addNewItem]
     setItems(listItems)
-    //localStorage.setItem("todo_list", JSON.stringify (listItems))
+    localStorage.setItem("todo_list", JSON.stringify (listItems))
   }
 
   // map egs
@@ -40,14 +40,14 @@ function App() {
     item.id===id?{...item, checked:!item.checked}:item)//...item will restore all the parameters in the item in absemce of that it will save only checked and in op we will not able to see the name of the item
     setItems(listItems)
     console.log(`id: ${id}`)
-    //localStorage.setItem("todo_list", JSON.stringify(listItems))//to save the latest changes in local storage using js
+    localStorage.setItem("todo_list", JSON.stringify(listItems))//to save the latest changes in local storage using js
   }
 
   const handleDelete =(id)=>{
     const listItems = items.filter((item) => 
     item.id!==id)//...item will restore all the parameters in the item in absemce of that it will save only checked and in op we will not able to see the name of the item
     setItems(listItems)
-    //localStorage.setItem("todo_list", JSON.stringify(listItems))//to save the latest changes in local storage using js
+    localStorage.setItem("todo_list", JSON.stringify(listItems))//to save the latest changes in local storage using js
   }
 
   const handleSubmit = (e)=>{
