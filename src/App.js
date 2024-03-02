@@ -5,12 +5,12 @@ import Header from "./Header";
 import "./App.css";
 import Content from "./Content";
 import Footer from "./Footer";
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import AddItem from "./AddItem";
 import SearchItem from "./SearchItem";
 
 function App() {
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('todo_list'))
+  const [items, setItems] = useState([]
     /* [
    default list
     { id: 1, checked: true, item: "Practice Coding" },
@@ -21,6 +21,10 @@ function App() {
 
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
+
+  useEffect(()=>{
+    JSON.parse(localStorage.getItem('todo_list'))
+  },[])
 
   const addItem = (item)=>{
     const id = items.length ? items[items.length - 1].id +1 : 1;
